@@ -34,7 +34,11 @@
 import warnings
 
 import numpy as np
-import numpy.lib.array_utils as _nx
+
+try: #numpy >= 2.0
+    import numpy.lib.array_utils as _nx
+except: # numpy < 2.0
+    import numpy.core.numeric as _nx
 
 
 def _ureduce(a, func, **kwargs):
